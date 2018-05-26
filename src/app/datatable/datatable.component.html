@@ -1,0 +1,44 @@
+<button (click)="isVisible = !isVisible">Angular DataTable....</button>
+<div class="col-sm-10" [@visibilityChanged]="visibility">
+<table class="table table-striped" [mfData]="Data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th >
+            <mfDefaultSorter by="ID">ID</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="city">Name</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="name">Email</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="email">Age</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="age">Actions</mfDefaultSorter>
+        </th>
+       
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee1 of employees | async">
+        <td>1</td>
+        <td>{{employee1.name}}</td>
+        <td>{{employee1.email}}</td>
+        <td>{{employee1.age}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteEmployee(employee.key)">Delete</button>
+          <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal">Modal Update</a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+</div>
