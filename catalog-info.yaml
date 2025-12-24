@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: EmpManage
+  annotations:
+    github.com/project-slug: ali509/EmpManage
+spec:
+  type: other
+  lifecycle: unknown
+  owner: ali509
